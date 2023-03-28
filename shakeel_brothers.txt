@@ -1,0 +1,127 @@
+﻿CREATE DATABASE shakeel_brothers
+USE [shakeel_brothers]
+
+CREATE TABLE [tblCity](
+	[ID] [int] Primary Key IDENTITY(1,1) NOT NULL,
+	[City] [nvarchar] (25) UNIQUE Not NULL,
+	[UCity] [nvarchar] (30) NOT NULL,
+)
+insert into tblCity (City,UCity)Values('Lahore','لاہور')
+insert into tblCity (City,UCity)Values('Karachi','کراچی')
+insert into tblCity (City,UCity)Values('Multan','ملتان')
+
+
+CREATE TABLE [tblArea](
+	[ID] [int] IDENTITY(1,1) NOT NULL,
+	[Area] [nvarchar] (35) UNIQUE NOT NULL,
+	[UArea] [nvarchar] (30) NOT NULL,
+	[CityId] int FOREIGN KEY REFERENCES tblCity(ID),
+)
+
+CREATE TABLE [tblSupplier](
+	[Id] [int] Primary Key IDENTITY(1,1) NOT NULL,
+	[Supplier] [nvarchar] (25) UNIQUE Not NULL,
+	[USupplier] [nvarchar] (30) NOT NULL,
+	[ContactPerson] [nvarchar] (30) NULL,
+	[Address] [nvarchar] (30) NULL,
+	[Ph] [nvarchar] (30) NULL,
+	[Fax] [nvarchar] (30) NULL,
+	[Email] [nvarchar] (40) NULL,
+	[City] int FOREIGN KEY REFERENCES tblCity(ID),
+	[Limit] [bigint] NULL,
+)
+insert into tblSupplier (Supplier,USupplier,ContactPerson,City)Values('Noor & Co.','نوراینڈکمپنی','213456452',1)
+insert into tblSupplier (Supplier,USupplier,ContactPerson,City)Values('Zahoor & Co.','زہوراینڈکمپنی','213456452',1)
+insert into tblSupplier (Supplier,USupplier,ContactPerson,City)Values('Faizullah KHI','فیضاللہ کراچی	','213456452',2)
+
+
+
+CREATE TABLE [tblTransactions](
+	[TID] [int] Primary Key NOT NULL,
+	[TDate] Date Not NULL,
+	[TTime] Time NULL,
+	[BillNum] [nvarchar] (30) NULL,
+	[Supplier] int FOREIGN KEY REFERENCES tblSupplier(Id),
+	[Debit] bigint Null,
+	[Select] [nvarchar] (30) NULL,
+	[Description] [nvarchar] (50) NULL,
+)
+
+
+CREATE TABLE [tblRawMaterial](
+	[Id] [int] Primary Key IDENTITY(1,1) NOT NULL,
+	[RawName] [nvarchar] (40) UNIQUE NOT NULL,
+	[URawName] [nvarchar] (40) NOT NULL,
+	[Packing] [nvarchar] (25)  NULL,
+	[UPacking] [nvarchar] (25) NULL,
+	[PQty] [int]  NULL,
+	[Measure] [nvarchar] (25)  NULL,
+	[PRate] [int] Null,
+)
+insert into tblRawMaterial(RawName,URawName)values('Balance','بیلنس')
+
+
+CREATE TABLE [tblTransport](
+	[ID] [int] Primary Key IDENTITY(1,1) NOT NULL,
+	[Transport] [nvarchar] (30) UNIQUE Not Null,
+	[UTransport] [nvarchar] (30) Not Null,
+	[Tport Ph] [nvarchar] (15) Null,
+)
+insert into tblTransport(Transport,UTransport)values('Self','سلف')
+
+
+
+CREATE TABLE [tblTransDetails](
+	[ID] [int] Primary Key IDENTITY(1,1) NOT NULL,
+	[TID] int FOREIGN KEY REFERENCES tbltransactions(TID),
+	[DDate] [Date] Not NULL,
+	[DTime] [Time] NULL,
+	[RawMaterial] int FOREIGN KEY REFERENCES tblRawMaterial(Id),
+	[Qty] [int] Null,
+	[Rate] [bigint]  Null,
+	[Nag] [int]  Null,
+	[Bilty] [nvarchar] (25)  Null,
+	[Transport] int FOREIGN KEY REFERENCES tblTransport(ID),
+	[Labour] [int]  Null,
+	[Bardan] [int]  Null,
+	[User] [nvarchar] (30) Null,
+	[Total] [bigint]  NOT NULL,
+)
+
+
+
+CREATE TABLE [tblCashier](
+	[ID] [int] Primary Key IDENTITY(1,1) NOT NULL,
+	[Cashier] [nvarchar] (30) UNIQUE Not Null,
+	[Password] [nvarchar] (30)  Not Null,
+	[Role] [nvarchar] (30)  Not Null,
+)
+insert into tblCashier(Cashier,Password,Role)values('umer','123','admin')
+insert into tblCashier(Cashier,Password,Role)values('bilal','123','cashier')
+
+
+CREATE TABLE [tblPacking](
+	[ID] [int] Primary Key IDENTITY(1,1) NOT NULL,
+	[Packing] [nvarchar] (30) UNIQUE Not Null,
+)
+
+
+CREATE TABLE [tblReceiver](
+	[ID] [int] Primary Key IDENTITY(1,1) NOT NULL,
+	[Receiver] [nvarchar] (30) UNIQUE Not Null,
+)
+
+
+
+
+
+
+
+
+
+
+select tblTransDetails.TID as 'ID',tblTransDetails.DDate as 'Date',tblTransDetails.RawMaterial as 'آٰیٹم کانام',
+                tblTransDetails.Nag,tblRawMaterial.Packing as 'پیکنگ',tblTransDetails.Qty as 'مقدار',tblTransDetails.Rate as 'ریٹ',tblTransDetails.Bilty,
+                tblTransDetails.Transport as 'ٹرانسپورٹ',tblTransDetails.Labour as 'مزدوری',tblTransDetails.Bardan as 'باردان',tblTransDetails.Total as 'رقم'
+                 from tblTransDetails  INNER JOIN tblRawMaterial ON tblTransDetails.RawMaterial = tblRawMaterial.Id where tblTransDetails.TID = 14
+
