@@ -144,7 +144,7 @@ namespace Shakeel_Brothers
             else if (txtCustomer.Text != "" && txtDate.Text != "" && txtAmount.Text != "")
             {
                 SqlCommand cmd = new SqlCommand("insert into tblTransactions(TID,TDate,TTime,BillNum,Supplier,Description)values(@tid,@d,@t,@b,@s,@ds)", c.con);
-                SqlCommand cmdd = new SqlCommand("insert into tblTransDetails(TID,DDate,DTime,[User],Total)values(@tid,@d,@t,@user,@tt)", c.con);
+                SqlCommand cmdd = new SqlCommand("insert into tblTransDetails(TID,DDate,DTime,RawMaterial,[User],Total)values(@tid,@d,@t,1,@user,@tt)", c.con);
                 SqlCommand cm = new SqlCommand("select Id from tblSupplier where Supplier = '" + txtCustomer.Text + "'", c.con);
                 c.con.Open();
                 SqlDataReader dr = cm.ExecuteReader();
