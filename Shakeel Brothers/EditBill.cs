@@ -76,7 +76,51 @@ namespace Shakeel_Brothers
 
         private void btnSave_Click(object sender, EventArgs e)
         {
+            if (txtDate.Text != "" && txtItem.Text != "")
+            {
+                SqlCommand cmd = new SqlCommand("insert into tblTransDetails(TID,DDate,DTime,RawMaterial,Qty,Rate,Nag,Bilty,Transport,Labour,Bardan,[User],Total)values(@tid,@d,@t,@rm,@q,@r,@n,@b,@tr,@l,@br,@u,@tt)", c.con);
+                SqlCommand cm = new SqlCommand("select Id from tblRawMaterial where RawName = '" + txtItem.Text + "'", c.con);
+                c.con.Open();
+                SqlDataReader dr = cm.ExecuteReader();
+                if (dr.Read())
+                {
+                    int ids = dr.GetInt32(0);
 
+                    cmd.Parameters.AddWithValue("@rm", ids);
+                    c.con.Close();
+                    cmd.Parameters.AddWithValue("@tid", txtID.Text);
+                    cmd.Parameters.AddWithValue("@d", Convert.ToDateTime(txtDate.Text));
+                    cmd.Parameters.AddWithValue("@t", DateTime.Now.ToString("H:mm tt"));
+                    cmd.Parameters.AddWithValue("@q", txtQty.Text);
+                    cmd.Parameters.AddWithValue("@r", txtRate.Text);
+                    cmd.Parameters.AddWithValue("@n", txtNag.Text);
+                    cmd.Parameters.AddWithValue("@b", txtBilty.Text);
+                    cmd.Parameters.AddWithValue("@tr", txtTransport.Text);
+                    cmd.Parameters.AddWithValue("@l", txtLabour.Text);
+                    cmd.Parameters.AddWithValue("@br", txtBardan.Text);
+                    cmd.Parameters.AddWithValue("@u", DataTransfer.user);
+                    cmd.Parameters.AddWithValue("@tt", txtTotal.Text);
+                
+                    c.IUD(cmd);
+                    showgrid();
+                    getitems();
+                    gettrans();
+                    txtDate.Focus();
+                }
+                else
+                {
+                    c.con.Close();
+                    MessageBox.Show("Please Select Customer !!");
+                    showgrid();
+                    getitems();
+                    gettrans();
+                    txtDate.Focus();
+                }
+            }
+            else
+            {
+                MessageBox.Show("Please Insert Data to Save !!");
+            }
         }
     }
 }

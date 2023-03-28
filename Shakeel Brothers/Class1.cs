@@ -15,9 +15,9 @@ namespace Shakeel_Brothers
 
         public Class1()
         {
-            con = new SqlConnection("Data Source=DESKTOP-R6JGHLF\\MSSQLSERVER01;Integrated Security=true;Initial Catalog=shakeel_brother");
+            //con = new SqlConnection("Data Source=DESKTOP-R6JGHLF\\MSSQLSERVER01;Integrated Security=true;Initial Catalog=shakeel_brother");
             //con = new SqlConnection("Data Source=DESKTOP-I6OQBMN;Integrated Security=true;Initial Catalog=shakeel_brothers");
-            //con = new SqlConnection("Data Source=DESKTOP-76GEPIK; user id=sa;password=a123456;Initial Catalog=shakeel_brothers");
+            con = new SqlConnection("Data Source=DESKTOP-76GEPIK; user id=sa;password=a123456;Initial Catalog=shakeel_brother");
             //con = new SqlConnection("Data Source=IMRAN; user id=sa;password=a123456;Initial Catalog=shakeel_brothers");
         }
 

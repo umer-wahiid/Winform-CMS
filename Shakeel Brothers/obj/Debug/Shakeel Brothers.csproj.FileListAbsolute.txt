@@ -119,3 +119,25 @@ C:\Users\HP\source\repos\Winform-CMS\Shakeel Brothers\obj\Debug\Shakeel Brothers
 C:\Users\HP\source\repos\Winform-CMS\Shakeel Brothers\obj\Debug\Shakeel Brothers.csproj.CoreCompileInputs.cache
 C:\Users\HP\source\repos\Winform-CMS\Shakeel Brothers\obj\Debug\Shakeel Brothers.exe
 C:\Users\HP\source\repos\Winform-CMS\Shakeel Brothers\obj\Debug\Shakeel Brothers.pdb
+D:\console\Winform-CMS\Shakeel Brothers\bin\Debug\Shakeel Brothers.exe.config
+D:\console\Winform-CMS\Shakeel Brothers\bin\Debug\Shakeel Brothers.exe
+D:\console\Winform-CMS\Shakeel Brothers\bin\Debug\Shakeel Brothers.pdb
+D:\console\Winform-CMS\Shakeel Brothers\obj\Debug\Shakeel Brothers.csproj.AssemblyReference.cache
+D:\console\Winform-CMS\Shakeel Brothers\obj\Debug\Shakeel Brothers.csproj.SuggestedBindingRedirects.cache
+D:\console\Winform-CMS\Shakeel Brothers\obj\Debug\Shakeel_Brothers.Area.resources
+D:\console\Winform-CMS\Shakeel Brothers\obj\Debug\Shakeel_Brothers.Bills.resources
+D:\console\Winform-CMS\Shakeel Brothers\obj\Debug\Shakeel_Brothers.Cashier.resources
+D:\console\Winform-CMS\Shakeel Brothers\obj\Debug\Shakeel_Brothers.City.resources
+D:\console\Winform-CMS\Shakeel Brothers\obj\Debug\Shakeel_Brothers.crtBill.resources
+D:\console\Winform-CMS\Shakeel Brothers\obj\Debug\Shakeel_Brothers.Customer.resources
+D:\console\Winform-CMS\Shakeel Brothers\obj\Debug\Shakeel_Brothers.EditBill.resources
+D:\console\Winform-CMS\Shakeel Brothers\obj\Debug\Shakeel_Brothers.Startup.resources
+D:\console\Winform-CMS\Shakeel Brothers\obj\Debug\Shakeel_Brothers.Item.resources
+D:\console\Winform-CMS\Shakeel Brothers\obj\Debug\Shakeel_Brothers.Login.resources
+D:\console\Winform-CMS\Shakeel Brothers\obj\Debug\Shakeel_Brothers.Payments.resources
+D:\console\Winform-CMS\Shakeel Brothers\obj\Debug\Shakeel_Brothers.Properties.Resources.resources
+D:\console\Winform-CMS\Shakeel Brothers\obj\Debug\Shakeel_Brothers.Transport.resources
+D:\console\Winform-CMS\Shakeel Brothers\obj\Debug\Shakeel Brothers.csproj.GenerateResource.cache
+D:\console\Winform-CMS\Shakeel Brothers\obj\Debug\Shakeel Brothers.csproj.CoreCompileInputs.cache
+D:\console\Winform-CMS\Shakeel Brothers\obj\Debug\Shakeel Brothers.exe
+D:\console\Winform-CMS\Shakeel Brothers\obj\Debug\Shakeel Brothers.pdb
