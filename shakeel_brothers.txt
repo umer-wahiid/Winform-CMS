@@ -74,14 +74,14 @@ insert into tblTransport(Transport,UTransport)values('Self','سلف')
 CREATE TABLE [tblTransDetails](
 	[ID] [int] Primary Key IDENTITY(1,1) NOT NULL,
 	[TID] int FOREIGN KEY REFERENCES tbltransactions(TID),
-	[DDate] [Date] Not NULL,
+	[DDate] [Date] NOT NULL,
 	[DTime] [Time] NULL,
 	[RawMaterial] int FOREIGN KEY REFERENCES tblRawMaterial(Id),
 	[Qty] [int] Null,
 	[Rate] [bigint]  Null,
 	[Nag] [int]  Null,
 	[Bilty] [nvarchar] (25)  Null,
-	[Transport] int FOREIGN KEY REFERENCES tblTransport(ID),
+	[Transport] [nvarchar] (50) Null,
 	[Labour] [int]  Null,
 	[Bardan] [int]  Null,
 	[User] [nvarchar] (30) Null,
@@ -125,3 +125,4 @@ select tblTransDetails.TID as 'ID',tblTransDetails.DDate as 'Date',tblTransDetai
                 tblTransDetails.Transport as 'ٹرانسپورٹ',tblTransDetails.Labour as 'مزدوری',tblTransDetails.Bardan as 'باردان',tblTransDetails.Total as 'رقم'
                  from tblTransDetails  INNER JOIN tblRawMaterial ON tblTransDetails.RawMaterial = tblRawMaterial.Id where tblTransDetails.TID = 14
 
+[Transport] int FOREIGN KEY REFERENCES tblTransport(ID),
