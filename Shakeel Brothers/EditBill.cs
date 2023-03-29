@@ -49,7 +49,19 @@ namespace Shakeel_Brothers
             txtTransport.AutoCompleteCustomSource = coll;
             c.con.Close();
         }
-
+        public void clr()
+        {
+            txtDate.Text = "";
+            txtItem.Text = "";
+            txtNag.Text = "0";
+            txtQty.Text = "0";
+            txtRate.Text = "0";
+            txtBilty.Text = "";
+            txtTransport.Text = "";
+            txtLabour.Text = "0";
+            txtBardan.Text = "0";
+            txtTotal.Text = "0";
+        }
 
         public void showgrid()
         {
@@ -105,12 +117,13 @@ namespace Shakeel_Brothers
                     showgrid();
                     getitems();
                     gettrans();
+                    clr();
                     txtDate.Focus();
                 }
                 else
                 {
                     c.con.Close();
-                    MessageBox.Show("Please Select Customer !!");
+                    MessageBox.Show("Please Select Product !!");
                     showgrid();
                     getitems();
                     gettrans();
@@ -122,5 +135,179 @@ namespace Shakeel_Brothers
                 MessageBox.Show("Please Insert Data to Save !!");
             }
         }
+
+       
+        private void btnUpdate_Click(object sender, EventArgs e)
+        {
+            if (txtDate.Text != "" && txtItem.Text != "")
+            {
+                SqlCommand cmd = new SqlCommand("update into tblTransDetails SET DDate=@d,DTime=@t,RawMaterial=@rm,Qty=@q,Rate=@r,Nag=@n,Bilty=@b,Transport=@tr,Labour=@l,Bardan=@br,[User]=@u,Total=@tt where ID=@i", c.con);
+                SqlCommand cm = new SqlCommand("select Id from tblRawMaterial where RawName = '" + txtItem.Text + "'", c.con);
+                c.con.Open();
+                SqlDataReader dr = cm.ExecuteReader();
+                if (dr.Read())
+                {
+                    int ids = dr.GetInt32(0);
+
+                    cmd.Parameters.AddWithValue("@rm", ids);
+                    c.con.Close();
+                    cmd.Parameters.AddWithValue("@i", txtTID.Text);
+                    cmd.Parameters.AddWithValue("@d", Convert.ToDateTime(txtDate.Text));
+                    cmd.Parameters.AddWithValue("@t", DateTime.Now.ToString("H:mm tt"));
+                    cmd.Parameters.AddWithValue("@q", txtQty.Text);
+                    cmd.Parameters.AddWithValue("@r", txtRate.Text);
+                    cmd.Parameters.AddWithValue("@n", txtNag.Text);
+                    cmd.Parameters.AddWithValue("@b", txtBilty.Text);
+                    cmd.Parameters.AddWithValue("@tr", txtTransport.Text);
+                    cmd.Parameters.AddWithValue("@l", txtLabour.Text);
+                    cmd.Parameters.AddWithValue("@br", txtBardan.Text);
+                    cmd.Parameters.AddWithValue("@u", DataTransfer.user);
+                    cmd.Parameters.AddWithValue("@tt", txtTotal.Text);
+                
+                    c.IUD(cmd);
+                    showgrid();
+                    getitems();
+                    gettrans();
+                    clr();
+                    txtDate.Focus();
+                }
+                else
+                {
+                    c.con.Close();
+                    MessageBox.Show("Please Select Product !!");
+                    showgrid();
+                    getitems();
+                    gettrans();
+                    txtDate.Focus();
+                }
+            }
+            else
+            {
+                MessageBox.Show("Please Insert Data to Save !!");
+            }
+
+        }
+        
+        private void dataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            DataTransfer.id = dataGridView1.CurrentRow.Cells[0].Value.ToString();
+            DataTransfer.d = dataGridView1.CurrentRow.Cells[1].Value.ToString();
+            DataTransfer.db = dataGridView1.CurrentRow.Cells[3].Value.ToString();
+
+            txtTID.Text = DataTransfer.id;
+            txtDate.Text = DataTransfer.d;
+        }
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        private void txtNag_TextChanged(object sender, EventArgs e)
+        {
+        }
+
+        private void txtQty_TextChanged(object sender, EventArgs e)
+        {
+            try
+            {
+                int x = Convert.ToInt32(txtBardan.Text) + Convert.ToInt32(txtLabour.Text) + (Convert.ToInt32(txtQty.Text) * Convert.ToInt32(txtRate.Text));
+                txtTotal.Text = x.ToString();
+            }
+            catch(System.FormatException ex)
+            {
+                //MessageBox.Show("مقدار can't be empty!");
+                txtQty.Text = "0";
+            }
+        }
+
+        private void txtRate_TextChanged(object sender, EventArgs e)
+        {
+            try 
+            { 
+                int x = Convert.ToInt32(txtBardan.Text) + Convert.ToInt32(txtLabour.Text) + (Convert.ToInt32(txtQty.Text) * Convert.ToInt32(txtRate.Text));
+                txtTotal.Text = x.ToString();
+            }
+            catch(System.FormatException ex)
+            {
+                //MessageBox.Show("ریٹ can't be empty!");
+                txtRate.Text = "0";
+            }
+        }
+
+        private void txtLabour_TextChanged(object sender, EventArgs e)
+        {
+            try 
+            { 
+                int x = Convert.ToInt32(txtBardan.Text) + Convert.ToInt32(txtLabour.Text) + (Convert.ToInt32(txtQty.Text) * Convert.ToInt32(txtRate.Text));
+                txtTotal.Text = x.ToString(); ;
+            }
+            catch(System.FormatException ex)
+            {
+                //MessageBox.Show("مزدوری can't be empty!");
+                txtLabour.Text = "0";
+            }
+        }
+
+        private void txtBardan_TextChanged(object sender, EventArgs e)
+        {
+            try 
+            { 
+                int x = Convert.ToInt32(txtBardan.Text) + Convert.ToInt32(txtLabour.Text) + (Convert.ToInt32(txtQty.Text) * Convert.ToInt32(txtRate.Text));
+                txtTotal.Text = x.ToString();
+            }
+            catch(System.FormatException ex)
+            {
+                //MessageBox.Show("باردان can't be empty!");
+                txtBardan.Text = "0";
+            }
+        }
+
     }
 }
