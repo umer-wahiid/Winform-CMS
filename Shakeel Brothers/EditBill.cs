@@ -5,6 +5,7 @@ using System.Data;
 using System.Data.SqlClient;
 using System.Drawing;
 using System.Linq;
+using System.Security.Cryptography;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -190,6 +191,8 @@ namespace Shakeel_Brothers
         
         private void dataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
         {
+            //@tid,@d,@t,@rm,@q,@r,@n,@b,@tr,@l,@br,@u,@tt;
+
             DataTransfer.id = dataGridView1.CurrentRow.Cells[0].Value.ToString();
             DataTransfer.d = dataGridView1.CurrentRow.Cells[1].Value.ToString();
             DataTransfer.db = dataGridView1.CurrentRow.Cells[3].Value.ToString();
