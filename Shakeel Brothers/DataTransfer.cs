@@ -12,6 +12,7 @@ namespace Shakeel_Brothers
 
         public static string a;
         public static string b;
+        public static string br;
         public static string c;
         public static string cp;
         public static string d;
@@ -25,9 +26,12 @@ namespace Shakeel_Brothers
         public static string m;
         public static string n;
         public static string p;
+        public static string q;
         public static string r;
         public static string s;
         public static string t;
+        public static string tt;
+        public static string tr;
         public static string un;
         public static string up;
 

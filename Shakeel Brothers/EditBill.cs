@@ -9,6 +9,7 @@ using System.Security.Cryptography;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static System.Windows.Forms.AxHost;
 
 namespace Shakeel_Brothers
 {
@@ -52,7 +53,7 @@ namespace Shakeel_Brothers
         }
         public void clr()
         {
-            txtDate.Text = "";
+            txtDate.Text = DateTime.Now.ToShortDateString();
             txtItem.Text = "";
             txtNag.Text = "0";
             txtQty.Text = "0";
@@ -76,6 +77,7 @@ namespace Shakeel_Brothers
 
         private void EditBill_Load(object sender, EventArgs e)
         {
+            txtDate.Text = DateTime.Now.ToShortDateString();
             txtID.Text = DataTransfer.BillId;
             showgrid();
             getitems();
@@ -142,7 +144,7 @@ namespace Shakeel_Brothers
         {
             if (txtDate.Text != "" && txtItem.Text != "")
             {
-                SqlCommand cmd = new SqlCommand("update into tblTransDetails SET DDate=@d,DTime=@t,RawMaterial=@rm,Qty=@q,Rate=@r,Nag=@n,Bilty=@b,Transport=@tr,Labour=@l,Bardan=@br,[User]=@u,Total=@tt where ID=@i", c.con);
+                SqlCommand cmd = new SqlCommand("update tblTransDetails SET DDate=@d,DTime=@t,RawMaterial=@rm,Qty=@q,Rate=@r,Nag=@n,Bilty=@b,Transport=@tr,Labour=@l,Bardan=@br,[User]=@u,Total=@tt where ID=@i", c.con);
                 SqlCommand cm = new SqlCommand("select Id from tblRawMaterial where RawName = '" + txtItem.Text + "'", c.con);
                 c.con.Open();
                 SqlDataReader dr = cm.ExecuteReader();
@@ -195,10 +197,28 @@ namespace Shakeel_Brothers
 
             DataTransfer.id = dataGridView1.CurrentRow.Cells[0].Value.ToString();
             DataTransfer.d = dataGridView1.CurrentRow.Cells[1].Value.ToString();
-            DataTransfer.db = dataGridView1.CurrentRow.Cells[3].Value.ToString();
+            DataTransfer.i = dataGridView1.CurrentRow.Cells[2].Value.ToString();
+            DataTransfer.n = dataGridView1.CurrentRow.Cells[3].Value.ToString();
+            DataTransfer.q = dataGridView1.CurrentRow.Cells[5].Value.ToString();
+            DataTransfer.r = dataGridView1.CurrentRow.Cells[6].Value.ToString();
+            DataTransfer.b = dataGridView1.CurrentRow.Cells[7].Value.ToString();
+            DataTransfer.tr = dataGridView1.CurrentRow.Cells[8].Value.ToString();
+            DataTransfer.l = dataGridView1.CurrentRow.Cells[9].Value.ToString();
+            DataTransfer.br = dataGridView1.CurrentRow.Cells[10].Value.ToString();
+            DataTransfer.tt = dataGridView1.CurrentRow.Cells[11].Value.ToString();
+
 
             txtTID.Text = DataTransfer.id;
             txtDate.Text = DataTransfer.d;
+            txtItem.Text = DataTransfer.i;
+            txtNag.Text = DataTransfer.n;
+            txtQty.Text = DataTransfer.q;
+            txtRate.Text = DataTransfer.r;
+            txtBilty.Text = DataTransfer.b;
+            txtTransport.Text = DataTransfer.tr;
+            txtLabour.Text = DataTransfer.l;
+            txtBardan.Text = DataTransfer.br;
+            txtTotal.Text = DataTransfer.tt;
         }
         
         
@@ -312,5 +332,20 @@ namespace Shakeel_Brothers
             }
         }
 
+        private void btnDelete_Click(object sender, EventArgs e)
+        {
+            if (txtTID.Text != "")
+            {
+                SqlCommand cmd = new SqlCommand("Delete from tblTransDetails where TID=@id", c.con);
+                cmd.Parameters.AddWithValue("@id", txtTID.Text);
+                c.IUD(cmd);
+                clr();
+                showgrid();
+            }
+            else
+            {
+                MessageBox.Show("Select Data Before Delete !!");
+            }
+        }
     }
 }
