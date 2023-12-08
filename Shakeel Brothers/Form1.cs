@@ -300,5 +300,10 @@ namespace Shakeel_Brothers
                 c.con.Close();
             }
         }
+
+        private void CustomerDropdown_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }

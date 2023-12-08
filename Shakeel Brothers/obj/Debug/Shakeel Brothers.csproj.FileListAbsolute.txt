@@ -141,3 +141,25 @@ D:\console\Winform-CMS\Shakeel Brothers\obj\Debug\Shakeel Brothers.csproj.Genera
 D:\console\Winform-CMS\Shakeel Brothers\obj\Debug\Shakeel Brothers.csproj.CoreCompileInputs.cache
 D:\console\Winform-CMS\Shakeel Brothers\obj\Debug\Shakeel Brothers.exe
 D:\console\Winform-CMS\Shakeel Brothers\obj\Debug\Shakeel Brothers.pdb
+C:\Users\hp\Documents\GitHub\Winform-CMS\Shakeel Brothers\bin\Debug\Shakeel Brothers.exe.config
+C:\Users\hp\Documents\GitHub\Winform-CMS\Shakeel Brothers\bin\Debug\Shakeel Brothers.exe
+C:\Users\hp\Documents\GitHub\Winform-CMS\Shakeel Brothers\bin\Debug\Shakeel Brothers.pdb
+C:\Users\hp\Documents\GitHub\Winform-CMS\Shakeel Brothers\obj\Debug\Shakeel Brothers.csproj.AssemblyReference.cache
+C:\Users\hp\Documents\GitHub\Winform-CMS\Shakeel Brothers\obj\Debug\Shakeel Brothers.csproj.SuggestedBindingRedirects.cache
+C:\Users\hp\Documents\GitHub\Winform-CMS\Shakeel Brothers\obj\Debug\Shakeel_Brothers.Area.resources
+C:\Users\hp\Documents\GitHub\Winform-CMS\Shakeel Brothers\obj\Debug\Shakeel_Brothers.Bills.resources
+C:\Users\hp\Documents\GitHub\Winform-CMS\Shakeel Brothers\obj\Debug\Shakeel_Brothers.Cashier.resources
+C:\Users\hp\Documents\GitHub\Winform-CMS\Shakeel Brothers\obj\Debug\Shakeel_Brothers.City.resources
+C:\Users\hp\Documents\GitHub\Winform-CMS\Shakeel Brothers\obj\Debug\Shakeel_Brothers.crtBill.resources
+C:\Users\hp\Documents\GitHub\Winform-CMS\Shakeel Brothers\obj\Debug\Shakeel_Brothers.Customer.resources
+C:\Users\hp\Documents\GitHub\Winform-CMS\Shakeel Brothers\obj\Debug\Shakeel_Brothers.EditBill.resources
+C:\Users\hp\Documents\GitHub\Winform-CMS\Shakeel Brothers\obj\Debug\Shakeel_Brothers.Startup.resources
+C:\Users\hp\Documents\GitHub\Winform-CMS\Shakeel Brothers\obj\Debug\Shakeel_Brothers.Item.resources
+C:\Users\hp\Documents\GitHub\Winform-CMS\Shakeel Brothers\obj\Debug\Shakeel_Brothers.Login.resources
+C:\Users\hp\Documents\GitHub\Winform-CMS\Shakeel Brothers\obj\Debug\Shakeel_Brothers.Payments.resources
+C:\Users\hp\Documents\GitHub\Winform-CMS\Shakeel Brothers\obj\Debug\Shakeel_Brothers.Properties.Resources.resources
+C:\Users\hp\Documents\GitHub\Winform-CMS\Shakeel Brothers\obj\Debug\Shakeel_Brothers.Transport.resources
+C:\Users\hp\Documents\GitHub\Winform-CMS\Shakeel Brothers\obj\Debug\Shakeel Brothers.csproj.GenerateResource.cache
+C:\Users\hp\Documents\GitHub\Winform-CMS\Shakeel Brothers\obj\Debug\Shakeel Brothers.csproj.CoreCompileInputs.cache
+C:\Users\hp\Documents\GitHub\Winform-CMS\Shakeel Brothers\obj\Debug\Shakeel Brothers.exe
+C:\Users\hp\Documents\GitHub\Winform-CMS\Shakeel Brothers\obj\Debug\Shakeel Brothers.pdb
